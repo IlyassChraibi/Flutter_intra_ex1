@@ -29,14 +29,19 @@ class MyHomePage extends StatefulWidget {
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
+var scaffoldKey = GlobalKey<ScaffoldState>();
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key:scaffoldKey,
       appBar: AppBar(
         title: Text(widget.title),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back), onPressed: () {scaffoldKey.currentState?.openDrawer();},
+          tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+        ),
       ),
       drawer: Drawer(
         // Add a ListView to the drawer. This ensures the user can scroll
@@ -71,13 +76,59 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
           children: <Widget>[
-            Expanded(
+            Row(
+              children: [
+                Expanded(
+                    flex: 1,
+                    child:
+                    Container(
+                      margin: EdgeInsets.all(5),  // Ca prend un container pour les bordures et les marges
+                      width: double.infinity,
+                      height: 200,
+                      color: Colors.red,
+                      child: const Padding(             // Le padding se fait en encapsulant dans le widget Padding
+                        padding: EdgeInsets.all(8.0),
+                        child: Text("Je prends 1/3"),
+                      ),
+                    )
+                ),
+                Expanded(
+                    flex: 1,
+                    child:
+                    Container(
+                      margin: EdgeInsets.all(5),  // Ca prend un container pour les bordures et les marges
+                      width: double.infinity,
+                      height: 200,
+                      color: Colors.red,
+                      child: const Padding(             // Le padding se fait en encapsulant dans le widget Padding
+                        padding: EdgeInsets.all(8.0),
+                        child: Text("Je prends 1/3"),
+                      ),
+                    )
+                ),
+                Expanded(
+                    flex: 1,
+                    child:
+                    Container(
+                      margin: EdgeInsets.all(5),  // Ca prend un container pour les bordures et les marges
+                      width: double.infinity,
+                      height: 200,
+                      color: Colors.red,
+                      child: const Padding(             // Le padding se fait en encapsulant dans le widget Padding
+                        padding: EdgeInsets.all(8.0),
+                        child: Text("Je prends 1/3"),
+                      ),
+                    )
+                )
+              ],
+            ),
+            /*Expanded(
               flex: 1,
               child:
               Container(
               color: Colors.red,
               ),
-            ),
+            ),*/
             Expanded(
               flex: 1,
               child:
