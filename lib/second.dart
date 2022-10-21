@@ -6,73 +6,76 @@ class SecondRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Second Route'),
-      ),
-      drawer: Drawer(
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text('Drawer Header'),
-            ),
-            ListTile(
-              title: const Text('Item 1'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-            ListTile(
-              title: const Text('Item 2'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-          ],
-        ),
-      ),
-      body: Column(
-        children: [
-          const Padding(
-            padding: EdgeInsets.all(20),
-            child: TextField(
-              decoration: InputDecoration(
-                  border: InputBorder.none,
-                  labelText: 'Enter Name',
-                  hintText: 'Enter Your Name'
-              ),
-            ),
-          ),
+      appBar: AppBar(title: Text('Demo mise en page'),),
+      body: Column(           // La plupart des layout pour telephones commencent avec une column
+        // TODO jouer entre les differents valeurs de MainAxisAlignment
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(5),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Text('Annuler!'),
+              Expanded(
+                flex: 2,
+                child:
+                Container(
+                  margin: EdgeInsets.all(5),  // Ca prend un container pour les bordures et les marges
+                  width: double.infinity,
+                  height: 200,
+                  color: Colors.red,
+                  child: const Padding(             // Le padding se fait en encapsulant dans le widget Padding
+                    padding: EdgeInsets.all(8.0),
+                    child: Text("Je prends 2/3"),
+                  ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(5),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Text('Sauvegarder'),
+              Expanded(
+                flex: 1, // pas forcement necessaire parce que 1 c'est la valeur par defaut
+                child:
+                Container(
+                  margin: EdgeInsets.all(5),  // Ca prend un container pour les bordures et les marges
+                  height: 200,
+                  color: Colors.white,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child:
+                        Container(
+                          child: Text("YO", style: TextStyle(color: Colors.red),),
+                        ),
+                      ),
+                      Expanded(
+                        child:
+                        Container(
+                          child: Column(
+                            children: [
+                              Expanded(
+                                child:
+                                Container(
+
+                                ),
+                              ),
+                              Expanded(
+                                child:
+                                Container(
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {}, // fonction anonyme qui ne fait rien
+        tooltip: 'Increment',   // c'est pour les non voyants qu'ils sachent ce que fait le bouton
+        child: Icon(Icons.add),
       ),
     );
   }
