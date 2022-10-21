@@ -75,52 +75,45 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       body: Column(
+
           children: <Widget>[
+            Expanded(
+              flex:2,
+              child:
             Row(
               children: [
                 Expanded(
-                    flex: 1,
+                    flex: 3,
                     child:
-                    Container(
-                      margin: EdgeInsets.all(5),  // Ca prend un container pour les bordures et les marges
+                    Container(// Ca prend un container pour les bordures et les marges
                       width: double.infinity,
-                      height: 200,
+                      height: double.infinity,
                       color: Colors.red,
-                      child: const Padding(             // Le padding se fait en encapsulant dans le widget Padding
-                        padding: EdgeInsets.all(8.0),
+                        child: Text("Je prends 1/2"),
+                    )
+                ),
+                Expanded(
+                    flex: 2,
+                    child:
+                    Container(// Ca prend un container pour les bordures et les marges
+                      width: double.infinity,
+                      height: double.infinity,
+                      color: Colors.blue,
                         child: Text("Je prends 1/3"),
-                      ),
                     )
                 ),
                 Expanded(
                     flex: 1,
                     child:
-                    Container(
-                      margin: EdgeInsets.all(5),  // Ca prend un container pour les bordures et les marges
+                    Container(// Ca prend un container pour les bordures et les marges
                       width: double.infinity,
-                      height: 200,
-                      color: Colors.red,
-                      child: const Padding(             // Le padding se fait en encapsulant dans le widget Padding
-                        padding: EdgeInsets.all(8.0),
-                        child: Text("Je prends 1/3"),
-                      ),
-                    )
+                      height: double.infinity,
+                      color: Colors.orange,
+                        child: Text("Je prends 1/6"),
+                    ),
                 ),
-                Expanded(
-                    flex: 1,
-                    child:
-                    Container(
-                      margin: EdgeInsets.all(5),  // Ca prend un container pour les bordures et les marges
-                      width: double.infinity,
-                      height: 200,
-                      color: Colors.red,
-                      child: const Padding(             // Le padding se fait en encapsulant dans le widget Padding
-                        padding: EdgeInsets.all(8.0),
-                        child: Text("Je prends 1/3"),
-                      ),
-                    )
-                )
               ],
+            ),
             ),
             /*Expanded(
               flex: 1,
@@ -133,7 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
               flex: 1,
               child:
               Container(
-                color: Colors.blue,
+                color: Colors.amberAccent,
               ),
             ),
           ],
